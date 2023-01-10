@@ -1,0 +1,143 @@
+* {
+  font-family: 'Jua', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #e5e5e5;
+  border: 1px solid transparent;
+}
+
+.title {
+  width: 250px;
+  padding: 20px;
+  background-color: #06c;
+  color: white;
+  border-radius: 10px;
+  text-align: center;
+  margin: 30px 0 10px 10px;
+  
+  /* 버그 중 하나 마진 상쇄효과 */
+  /* 딱 달라 붙은 상태에서 마진을 먹는 것 */
+  /* 마진 상쇄효과는 상하에서만 작동한다. 좌우에서는 작동을 안 한다. */
+}
+
+.menu-box-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.menu-box {
+  width: calc((100% - 80px)/4);
+
+  /*  width: calc((100% - 80px)/4);
+
+이건 100%에서 80을 빼는 것인데
+
+ width: calc((100% -80px)/4);
+
+-80px로 인식을 해서 계산이 100%/4가 된 것이다. */
+
+  margin: 20px 10px;
+  padding: 10px;
+  background-color: white;
+  border-radius: 7px;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 400ms ease-in-out;
+  /* transition: filter 400ms ease-in-out; */
+  /* 잘못입력하면 기존의 엉뚱한 값 때문에 인식이 안 되는 것이다. */
+}
+
+.menu-box:hover {
+  transform: scale(1.04);
+  box-shadow: 0 15px 15px rgba(0, 0, 0, 0.08);
+  /* filter: none; */
+}
+
+/* 메뉴 박스에 호버했을 때 메뉴 박스가 이렇게 변해라. */
+
+.menu-box:hover img {
+  filter: none;
+}
+
+.menu-img {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.menu-img img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  object-fit: cover;
+  filter: blur(2px);
+}
+
+.menu-box:hover .menu-img img {
+  filter: none;
+}
+
+/* .menu-box:hover img {
+  filter: none;
+} 
+라고 썼는데 이러면 사실 의도치 않게 모든 img가 된다. 위에처럼 구체적으로 써야 한다.
+*/
+
+.menu-title {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-top: 2px;
+  font-weight: 700;
+}
+
+.menu-info {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
+.date, .count {
+  font-size: 14px;
+  color: #666;
+}
+
+@media screen and (max-width: 1200px) {
+
+  .menu-box {
+    width: calc((100% - 60px)/3);
+  }
+
+}
+
+
+@media screen and (max-width: 768px) {
+
+  .menu-box {
+    width: calc((100% - 40px)/2);
+  }
+
+}
+
+
+@media screen and (max-width: 560px) {
+
+  .menu-box {
+    width: calc((100% - 20px)/1);
+  }
+
+}
